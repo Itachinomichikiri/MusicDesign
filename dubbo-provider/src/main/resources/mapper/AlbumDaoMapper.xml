@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.itach.mapper.AlbumDaoMapper">
+    <insert id="CreateAlbum" useGeneratedKeys="true" keyColumn="album_id" parameterType="com.itach.entity.Album">
+        insert into album(album_name,album_publish_time,album_describe,album_singer_name,album_hash,album_publish_company)
+        values (#{album.albumName},#{album.albumPublishTime},#{album.albumDescribe},#{album.albumSinger},
+        #{album.albumHash},#{album.albumPublishCompany})
+    </insert>
+</mapper>

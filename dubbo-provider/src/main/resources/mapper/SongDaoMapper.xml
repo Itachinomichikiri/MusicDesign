@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.itach.mapper.SongDaoMapper">
+    <insert id="CreateSong" useGeneratedKeys="true" keyColumn="song_id" parameterType="com.itach.entity.Song">
+        insert into songmessage(album_id,song_name,song_singer_id,song_time)
+        values (#{song.albumId},#{song.songName},#{song.singerId},#{song.songTime})
+    </insert>
+</mapper>

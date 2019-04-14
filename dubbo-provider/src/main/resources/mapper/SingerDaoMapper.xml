@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.itach.mapper.SingerDaoMapper">
+    <insert id="CreateSinger" useGeneratedKeys="true" keyColumn="singer_id" parameterType="com.itach.entity.Singer">
+        insert into singermessage(singer_name,singer_hash,singer_classify) values (#{singer.singerName},#{singer.singerHash},#{singer.singerClassify})
+    </insert>
+
+<!--    <insert id="CreateSingers" useGeneratedKeys="true" keyColumn="id" parameterType="java.util.ArrayList">
+      insert into singermessage(singer_name,singer_hash,singer_classify) values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item.singerName,jdbcType=VARCHAR},
+            #{item.singerHash,jdbcType=INTEGER},
+            #{item.sigerClassify,jdbcType=VARCHAR})
+        </foreach>
+    </insert>-->
+
+    <select id="RetrieveSinger" resultMap="singerMap">
+        select * from singermessage
+    </select>
+    <resultMap id="singerMap" type="com.itach.entity.Singer">
+        <result property="singerName" column="singer_name"></result>
+        <result property="singerHash" column="singer_hash"></result>
+        <result property="singerClassify" column="singer_classify"></result>
+    </resultMap>
+</mapper>
